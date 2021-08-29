@@ -1215,8 +1215,8 @@ function checkaction(action, item, afterwait)
     local olditem = db:getitem(item.serial)
     db:moveitem(item, 'Inventory')
     event_container_change('Inventory')
-    phelper:processevent('itemchange', db:getitem(item.serial))
     if olditem then
+      phelper:processevent('itemchange', db:getitem(item.serial))
       event_container_change(olditem.containerid)
     end
     timer_end('EQdb:action5')
